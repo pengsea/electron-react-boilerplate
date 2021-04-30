@@ -1,0 +1,8 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.opera{
+  margin-left: 10px;
+}
