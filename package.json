@@ -261,7 +261,10 @@
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.5",
     "source-map-support": "^0.5.19",
-    "ssh2": "0.8.9"
+    "ssh2": "0.8.9",
+    "crypto-js": "^4.0.0",
+    "electron-store": "^8.0.0",
+    "dva": "^2.4.1"
   },
   "devEngines": {
     "node": ">=10.x",

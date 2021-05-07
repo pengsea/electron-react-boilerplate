@@ -1,0 +1,8 @@
+
+.row{
+  margin: 5px 0;
+}
+.generate{
+  display: flex;
+  justify-content: center;margin: 5px 0;
+}

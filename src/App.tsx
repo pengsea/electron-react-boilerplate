@@ -1,16 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route ,Link} from 'react-router-dom';
-import {Login} from './login/Login'
-import {Account} from './login/Account'
-import './App.global.css';
+import Login from './login/Login'
+import Account from './login/Account'
 
-export default function App() {
+import React from 'react';
+import { Router, Route, Switch } from 'dva/router';
+
+function RouterConfig({ history }:any) {
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
-        <Route strict  path="/account" component={Account} />
-        <Route strict   path="/" component={Login} />
+        <Route path="/" exact component={Login} />
+        <Route path="/account" exact component={Account} />
+        <Route path="/encrypt" exact component={Account} />
       </Switch>
     </Router>
   );
 }
+
+export default RouterConfig;

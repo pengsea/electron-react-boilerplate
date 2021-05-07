@@ -15,7 +15,9 @@ import { app, BrowserWindow, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+const Store = require('electron-store');
 
+Store.initRenderer();
 export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
@@ -74,6 +76,7 @@ const createWindow = async () => {
     icon: getAssetPath('icon.png'),
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true // <-- Add me
     },
   });
   // mainWindow.webContents.openDevTools()
