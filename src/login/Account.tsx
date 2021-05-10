@@ -8,13 +8,11 @@ import { routerRedux } from 'dva/router';
 
 const { TabPane } = Tabs;
 
-function callback(key: any) {
-  console.log(key);
-}
+
 
 
 const Account = ({ dispatch, redis }) => {
-  const [db, setDB] = useState([]);
+  const [activeKey, setActiveKey] = useState('1');
   const [dbName, setDBName] = useState({});
   useEffect(() => {
     let temp: any = [];
@@ -31,7 +29,9 @@ const Account = ({ dispatch, redis }) => {
     //
     // setDB(temp);
   }, []);
-
+  const callback=(key: any)=> {
+    setActiveKey(key)
+  }
   //@ts-ignore
   // useEffect(async () => {
   //   let tempName: any = {};
@@ -54,7 +54,7 @@ const Account = ({ dispatch, redis }) => {
     <Tabs defaultActiveKey='1' onChange={callback} type='card'>
       {instance.map((item: any, i: any) =>
         <TabPane tab={item.name ? item.name : '未设置'} key={i}>
-          <DataTable redisInstance={item} />
+          {activeKey==i&&<DataTable redisInstance={item} />}
         </TabPane>
       )}
     </Tabs>
